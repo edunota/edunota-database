@@ -3,6 +3,14 @@
 
 This repository contains all Database management for edunota tools like migrations, backupbs, ..etc
 
+## submodules
+    - infrastructure
+
+to update submodules run command
+```bash
+git submodule update --remote --merge
+```
+
 
 ## Current database schema
 ![image](resources/database_digram.png)
