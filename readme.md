@@ -34,11 +34,18 @@ go build -tags='no_mysql no_sqlite3' -o goose ./cmd/goose
 we use makefile to run scripts. follow [tutorials here](https://linuxhint.com/run-makefile-windows/)
 
 use makefile.dev to spin up dev enviroment
+### spinup
+spins up the enviroment with docker compose
 
+```bash
+make -f makefile.<env> spinup
+```
+note -f flag is optional it will look `makefile` in root and execute it if not specified
 ### create 
 creates new migration file under /migrations dir
 ```bash
-make -f *.<env> create name=<name_of_the_migration>
+make -f makefile.<env> create name=<name_of_the_migration>
+
 
 # for example migrate on dev enviroment
 # make -f *.dev create name=name_of_the_migration
@@ -51,20 +58,20 @@ to update submodules run command
 ### up
 migrate to most recent version of database
 ```bash
-make -f *.<env> up
+make -f makefile.<env> up
 ```
 
 
 ### up-by-one 
 Migrate the DB up by 1 version
 ```bash
-make -f *.<env> up-by-one  
+make -f makefile.<env> up-by-one  
 ```
 
 ### up-to
 Migrate untill spesific version
 ```bash
-make -f *.<env> up-to ver=<ver>
+make -f makefile.<env> up-to ver=<ver>
 
 # for example
 # make -f *.<env> up-to ver=20170506082420
@@ -76,12 +83,13 @@ make -f *.<env> up-to ver=<ver>
 Roll back the version by 1
 
 ```bash
-make -f *.<env> down
+make -f makefile.<env> down
 ```
 
 ### down-to ver
+Roll back to a specific VERSION
 ```bash
-make -f *.<env> down-to ver=<ver>
+make -f makefile.<env> down-to ver=<ver>
 # for example
 #make -f *.dev down-to ver=20170506082527
 # OK    20170506082527_alter_column.sql
@@ -90,16 +98,26 @@ make -f *.<env> down-to ver=<ver>
 ### redo
 Roll back the most recently applied migration, then run it again.
 ```bash
-make -f *.<env> redo
+make -f makefile.<env> redo
 # for example
 # make -f *.env redo  
 # OK    003_and_again.sql
 # OK    003_and_again.sql
 ```
+
+### reset
+Roll back all migrations
+
+```bash
+make -f makefile.<env> reset
+
+```
+
+
 ### status
 Print the status of all migrations
 ```bash
-make -f *.<env> status
+make -f makefile.<env> status
 
 # for example 
 #
@@ -115,10 +133,22 @@ make -f *.<env> status
 Print the current version of the database:
 
 ```bash
-make -f *.<env> version
+make -f makefile.<env> version
 
 # goose version
 # goose: version 002
+```
+
+### fix
+Apply sequential ordering to migrations
+```bash
+make -f makefile.<env> fix
+```
+
+### validate
+Check migration files without running them
+```bash
+make -f makefile.<env> validate
 ```
 
 # Annotations
