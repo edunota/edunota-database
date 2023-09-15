@@ -31,6 +31,18 @@ For a lite version of the binary without DB connection dependent commands, use t
 go build -tags='no_mysql no_sqlite3' -o goose ./cmd/goose
 ```
 
+makesure GOROOT & GOPATH env variables set correctly
+```bash
+# bash
+cat cat ~/.bashrc | grep GO
+# zsh
+cat ~/.zshrc | grep GO
+```
+it should printout something like this
+```shell
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+```
 we use makefile to run scripts. follow [tutorials here](https://linuxhint.com/run-makefile-windows/)
 
 use makefile.dev to spin up dev enviroment
