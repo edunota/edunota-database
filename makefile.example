@@ -2,6 +2,8 @@
 # do not edit this section
 MIGRATION_DIR=./migrations
 
+# edit this to match your env dev|prod|test etc
+ENV=dev
 # edit this fields to match your database enviroment
 #must match with app database
 # user name of database
@@ -24,7 +26,7 @@ export GOOSE_DRIVER=postgres
 # commands
 # spin up database and other services on docker compose
 spinup: 
-	bash -c "sudo docker compose  --project-directory=infrastructure/dev  up"
+	bash -c "sudo docker compose  --project-directory=infrastructure/$(env)  up"
 # create new migration file
 create $1: 
 	bash -c "goose -dir=./migrations create $($1) sql"
