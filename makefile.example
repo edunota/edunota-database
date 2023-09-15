@@ -26,7 +26,7 @@ export GOOSE_DRIVER=postgres
 # commands
 # spin up database and other services on docker compose
 spinup: 
-	bash -c "sudo docker compose  --project-directory=infrastructure/$(env)  up"
+	bash -c "sudo docker compose  --project-directory=infrastructure/$(env)  up -d"
 # create new migration file
 create $1: 
 	bash -c "goose -dir=./migrations create $($1) sql"
