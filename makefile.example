@@ -18,7 +18,7 @@ POSTGRES_PASSWORD=edunota
 POSTGRES_DB=edunota
 
 # port of database
-POSTGRES_PORT=5582
+POSTGRES_PORT=5432
 
 # hostname of database
 POSTGRES_HOST=localhost
@@ -49,7 +49,7 @@ up:
 # ==========================================================
 # Migrate the DB up by 1
 up-by-one:
-	bash -c "goose -dir=$(MIGRATION_DIR) up-by-one"
+	bash -c "goose -dir=$(MIGRATION_DIR)"
 
 # ==========================================================
 #  Migrate the DB to a specific VERSION
