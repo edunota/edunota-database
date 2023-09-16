@@ -226,7 +226,7 @@ git submodule update --remote --merge
 ___
 
 ## Current database schema
-![image](resources/database_digram.png)
+![image](resources/DATABASE_DIGRAM_2023-09-16_205021.png)
 
 you can see interactive diagram [here](https://dbdiagram.io/d/6502197c02bd1c4a5e865426)
 
