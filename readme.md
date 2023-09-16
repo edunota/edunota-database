@@ -224,9 +224,9 @@ to pull changes on submodule
 git submodule update --remote --merge
 ```
 ___
-## Current database schema
-<iframe width="100%" height="315" src='https://dbdiagram.io/embed/6502197c02bd1c4a5e865426'> </iframe>
 
+## Current database schema
+![image](resources/database_digram.png)
 
 you can see interactive diagram [here](https://dbdiagram.io/d/6502197c02bd1c4a5e865426)
 
