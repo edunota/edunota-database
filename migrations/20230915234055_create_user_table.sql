@@ -31,10 +31,15 @@ CREATE TABLE IF NOT EXISTS Profiles (
     PRIMARY KEY (id)
 );
 
+CREATE TYPE AccountStatus AS ENUM ('VERIFIED', 'UNVERIFIED', 'RESTIRICTED');
+
 CREATE TABLE IF NOT EXISTS Accounts (
     id UUID DEFAULT uuid_generate_v4() NOT NULL,
     account_tier AccountTier DEFAULT 'BASIC',
     password BYTEA NOT NULL,
+    email VARCHAR(64) NOT NULL,
+    account_status AccountStatus DEFAULT 'UNVERIFIED',
+    account_restrict_reason VARCHAR(64),
     fk_profile_id UUID NOT NULL,
     fk_person_id UUID NOT NULL,
     PRIMARY KEY (id),
@@ -51,6 +56,7 @@ ALTER TABLE Persons ADD CONSTRAINT fk_account FOREIGN KEY (fk_acount) REFERENCES
 
 -- +goose Down
 -- +goose StatementBegin
+ALTER TABLE  Persons DROP CONSTRAINT IF EXISTS fk_account;
 DROP TABLE IF EXISTS Accounts;
 DROP TABLE  IF EXISTS Persons;
 DROP  TABLE IF EXISTS Profiles;
@@ -59,5 +65,6 @@ DROP TYPE IF EXISTS ResourceType;
 DROP TABLE IF EXISTS Users;
 DROP TYPE IF EXISTS AccountTier;
 DROP TYPE IF EXISTS PersonType;
+DROP TYPE IF EXISTS AccountStatus;
 DROP EXTENSION IF EXISTS "uuid-ossp";
 -- +goose StatementEnd
