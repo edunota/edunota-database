@@ -1,3 +1,6 @@
 [submodule "infrastructure"]
 	path = infrastructure
 	url = git@github.com:edunota/edunota_infrastructure.git
+[submodule "guideline"]
+	path = guideline
+	url = git@github.com:edunota/edunota-guideline.git
