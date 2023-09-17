@@ -3,7 +3,17 @@
 
 This repository contains all Database management for edunota tools like migrations, backupbs, ..etc
 
+
+## important
+CLONE THIS REPOSITORY WITH SSH, GIT SUBMODULES DEPEND ON SSH KEY
+if you dont have a ssh key, follow instructions [here](guideline/ssh.md) 
+```bash
+  git clone git@github.com:edunota/edunota-database.git edunota_database
+```
+___
+
 ## Before you start
+
 go installed on your machine
 ```bash
 # use homebrew
