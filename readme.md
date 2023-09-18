@@ -62,6 +62,14 @@ spins up the enviroment with docker compose
 ```bash
 make -f makefile.<env> spinup
 ```
+use makefile.dev to down dev enviroment
+### spindown
+down the enviroment with docker compose
+
+```bash
+make -f makefile.<env> spindown
+```
+
 note -f flag is optional it will look `makefile` in root and execute it if not specified
 ### create 
 creates new migration file under /migrations dir
