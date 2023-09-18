@@ -37,6 +37,10 @@ spinup:
 	bash -c "sudo docker compose --project-directory=infrastructure/$(ENV) up -d"
 
 # ==========================================================
+# spin down
+spindown:
+    bash -c "sudo docker compose --project-directory=infrastructure/$(ENV) down"
+# ==========================================================
 # create new migration file
 create: 
 	bash -c "goose -dir=$(MIGRATION_DIR) create $(name) sql"

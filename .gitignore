@@ -4,3 +4,4 @@ makefile.dev
 makefile.test
 .env
 /infrastructure
+Makefile
