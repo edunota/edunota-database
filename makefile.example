@@ -53,7 +53,7 @@ up:
 # ==========================================================
 # Migrate the DB up by 1
 up-by-one:
-	bash -c "goose -dir=$(MIGRATION_DIR)"
+	bash -c "goose -dir=$(MIGRATION_DIR) up-by-one"
 
 # ==========================================================
 #  Migrate the DB to a specific VERSION
