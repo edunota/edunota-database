@@ -1,39 +1,33 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE Type PersonType AS ENUM ("LEGAL", "REAL")
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE TABLE IF NOT EXISTS Persons (
-    id UUID DEFAULT uuid_generate_v4() NOT NULL,
-    fist_name VARCHAR(32) NOT NULL,
-    last_name VARCHAR(32) NOT NULL,
-    person_type PersonType NOT NULL DEFAULT PersonType.LEGAL
-    fk_account UUID NOT NULL,
-    PRIMARY KEY(id)
-    CONSTRAINT fk_account
-        FOREIGN KEY (fk_account) REFERENCES Accounts(ids)
-);
+CREATE TYPE AccountType AS ENUM ('LEGAL', 'REAL');
+create TYPE ResourceType AS ENUM ('IMAGE', 'DOCUMENT');
 
 CREATE TABLE IF NOT EXISTS Accounts (
     id BIGSERIAL PRIMARY KEY NOT NULL,
     password BYTEA NOT NULL,
     user_name VARCHAR(64),
-
-
+    account_type AccountType NOT NULL DEFAULT 'LEGAL',
+    fist_name VARCHAR(32) NOT NULL,
+    last_name VARCHAR(32) NOT NULL
 );
-create TYPE IF NOT EXISTS ResourceType AS ENUM ("IMAGE" "DOCUMENT");
+
+
 CREATE TABLE IF NOT EXISTS Resources (
     id BIGSERIAL NOT NULL PRIMARY KEY,
-    resource_type ResourceType DEFAULT "IMAGE"
+    resource_type ResourceType DEFAULT 'IMAGE',
     source TEXT NOT NULL,
     alt TEXT,
     description TEXT
-)
+);
 CREATE TABLE IF NOT EXISTS Profiles (
     id UUID DEFAULT uuid_generate_v4() NOT NULL,
     fk_profile_photo BIGSERIAL NOT NULL,
     PRIMARY KEY(id),
     CONSTRAINT fk_profile_photo 
-        FOREIGN KEY(fk_profile_photo) REFERENCES Resources(id)
+        FOREIGN KEY(fk_profile_photo) REFERENCES Resources(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS JK_Friends (
@@ -49,22 +43,26 @@ CREATE TABLE IF NOT EXISTS JK_Friends (
         REFERENCES Profiles(id)
         ON DELETE NO ACTION
 );
-CREATE TABLE IF NOT EXISTS Users (
-    id UUID DEFAULT uuid_generate_v4(),
-    profile Profile NOT NULL,
-    PRIMARY KEY(id),
-    CONSTRAINT fk_profile
-        FOREIGN KEY(profile)
-        REFERENCES Profiles(id)
-        ON CREATE SET DEFAULT
-        ON DELETE CASCADE
-);
+
 -- +goose StatementEnd
 
 -- +goose Down
 -- +goose StatementBegin
-DROP TABLE IF EXISTS Users;
+
+DROP TABLE IF EXISTS JK_Friends;
+
+DROP TABLE IF EXISTS Accounts;
+
+DROP TABLE  IF EXISTS Profiles;
+
+
+
+DROP TABLE IF EXISTS Resources;
 -- +goose StatementEnd
 -- +goose StatementBegin
 DROP EXTENSION IF EXISTS "uuid-ossp";
+DROP TYPE IF EXISTS ResourceType;
+DROP TYPE IF EXISTS AccountType;
+DROP TYPE IF EXISTS accountstatus;
+DROP TYPE IF EXISTS accounttier;
 -- +goose StatementEnd
