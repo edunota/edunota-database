@@ -2,5 +2,6 @@ makefile.dev
 makefile.prod
 makefile.dev
 makefile.test
+makefile
 .env
 /infrastructure

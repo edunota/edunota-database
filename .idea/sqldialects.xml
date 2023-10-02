@@ -2,5 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/migrations/20230915234055_create_user_table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/../../tutorials/postgres_go/DB.sql" dialect="PostgreSQL" />
   </component>
 </project>
