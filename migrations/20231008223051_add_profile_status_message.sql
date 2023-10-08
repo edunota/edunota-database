@@ -1,9 +1,14 @@
 -- +goose Up
 -- +goose StatementBegin
-SELECT 'up SQL query';
+
+
+ALTER TABLE Profiles ADD COLUMN profile_status_message TEXT; 
+
 -- +goose StatementEnd
 
 -- +goose Down
 -- +goose StatementBegin
-SELECT 'down SQL query';
+
+ALTER TABLE Profiles DROP COLUMN profile_status_message;
+
 -- +goose StatementEnd
