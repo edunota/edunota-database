@@ -248,3 +248,6 @@ ___
 
 you can see interactive diagram [here](https://dbdiagram.io/d/6502197c02bd1c4a5e865426)
 
+# License
+
+[AGPL-3.0](https://github.com/edunota/edunota-database/blob/12-update-readme-through-new-schema/LICENSE)
