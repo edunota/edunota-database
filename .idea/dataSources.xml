@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="edunota@localhost" uuid="9bd4c26d-3027-4c85-be80-cc054145a923">
+    <data-source source="LOCAL" name="edunota@localhost" uuid="34543f01-c856-4487-bf89-d65fab2d538d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5434/edunota</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/edunota</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
