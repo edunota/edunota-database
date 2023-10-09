@@ -244,7 +244,7 @@ git submodule update --remote --merge
 ___
 
 ## Current database schema
-![image](resources/database_diagram_2023-10-09%20232100.png)
+![image](https://github.com/edunota/edunota-resources/blob/0fbc174be6ab73ecb03d3598733ae20b2db5a58a/database_diagram_2023-10-09%20232100.png?raw=true)
 
 you can see interactive diagram [here](https://dbdiagram.io/d/6502197c02bd1c4a5e865426)
 
