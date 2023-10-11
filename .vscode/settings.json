@@ -1,3 +1,4 @@
 {
-    "editor.fontFamily": "Monolisa, Consolas, 'Courier New', monospace"
+    "editor.fontFamily": "Monolisa, Consolas, 'Courier New', monospace",
+    "editor.fontSize": 20
 }

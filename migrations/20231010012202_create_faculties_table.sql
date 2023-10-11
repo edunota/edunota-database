@@ -3,7 +3,7 @@
 CREATE TABLE IF NOT EXISTS Faculties(
     id BIGSERIAL NOT NULL PRIMARY KEY ,
     name VARCHAR(64),
-    institution BIGSERIAL REFERENCES Institutions (id)
+    fk_institution_id BIGSERIAL REFERENCES Institutions (id)
 );
 -- +goose StatementEnd
 
