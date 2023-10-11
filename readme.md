@@ -56,13 +56,18 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 we use makefile to run scripts. follow [tutorials here](https://linuxhint.com/run-makefile-windows/)
 
 use makefile.dev to spin up dev enviroment
+
+
 ### spinup
 spins up the enviroment with docker compose
 
 ```bash
 make -f makefile.<env> spinup
 ```
-use makefile.dev to down dev enviroment
+
+note -f flag is optional it will look `makefile` in root and execute it if not specified
+
+
 ### spindown
 down the enviroment with docker compose
 
@@ -70,7 +75,12 @@ down the enviroment with docker compose
 make -f makefile.<env> spindown
 ```
 
-note -f flag is optional it will look `makefile` in root and execute it if not specified
+### seed
+seeds database with data
+```bash
+make -f makefile.<env> seed
+```
+
 ### create 
 creates new migration file under /migrations dir
 ```bash
